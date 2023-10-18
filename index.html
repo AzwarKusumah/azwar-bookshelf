@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/css.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <title>Azwar BookShelf</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="wrapper">
+          <h1>Azwar Bookshelf</h1>
+          <form method="get" class="search-field">
+            <input
+              type="text"
+              name="search"
+              id="searchBox"
+              placeholder="Judul buku"
+            />
+            <button
+              type="submit"
+              id="buttonSearch"
+              class="btn"
+              title="Cari buku"
+            >
+              <i class="bx bx-search"></i>
+            </button>
+          </form>
+        </div>
+      </nav>
+    </header>
+    <main class="main">
+      <div class="container">
+        <!--COLUMN DAFTAR BUKU-->
+        <div class="column column-30">
+          <div class="card-container">
+            <div class="card-header">
+              <h2 class="card-title">Daftarkan Buku</h2>
+            </div>
+            <form class="form-group" action="" id="formAddBook">
+              <div class="form-input">
+                <label for="title">Judul Buku</label>
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  placeholder="Judul buku"
+                  required
+                />
+              </div>
+              <div class="form-input">
+                <label for="author">Penulis Buku</label>
+                <input
+                  type="text"
+                  name="author"
+                  id="author"
+                  placeholder="Penulis"
+                  required
+                />
+              </div>
+              <div class="form-input">
+                <label for="yearBook">Tahun Buku</label>
+                <input type="number" name="yearBook" id="yearBook" required />
+              </div>
+              <div class="form-checkbox">
+                <input type="checkbox" name="isCompleted" id="isCompleted" />
+                <label for="isCompleted">Selesai dibaca</label>
+              </div>
+              <button
+                type="submit"
+                value="Submit"
+                name="Submit"
+                class="btn btn-primary"
+              >
+                <i class="bx bx-book-add"></i>
+                Tambah
+              </button>
+            </form>
+          </div>
+        </div>
+        <!--COLUMN LIST BUKU-->
+        <div class="column column-70">
+          <!--EDIT MODAL-->
+          <div class="modal" id="editBookModal" hidden>
+            <article class="modal-container">
+              <header class="modal-container-header">
+                <h1 class="modal-container-title">Edit Buku</h1>
+              </header>
+              <section class="modal-container-body">
+                <form id="editBookForm" class="form-group">
+                  <div class="form-input">
+                    <label for="editTitle">Judul</label>
+                    <input type="text" id="editTitle" class="input" required />
+                  </div>
+                  <div class="form-input">
+                    <label for="editAuthor">Penulis</label>
+                    <input type="text" id="editAuthor" class="input" required />
+                  </div>
+                  <div class="form-input">
+                    <label for="editYear">Tahun Terbit</label>
+                    <input type="number" id="editYear" class="input" required />
+                  </div>
+                  <div class="form-checkbox">
+                    <label for="editComplete">Selesai dibaca</label>
+                    <input type="checkbox" id="editComplete" class="input" />
+                  </div>
+                </form>
+              </section>
+              <div class="modal-container-footer">
+                <button id="cancelEditModal" class="btn-modal is-ghost">
+                  Cancel
+                </button>
+                <button id="saveEditModal" class="btn-modal is-primary">
+                  Save
+                </button>
+              </div>
+            </article>
+          </div>
+          <!--DELETE MODAL-->
+          <div class="modal" id="deleteBookModal" hidden>
+            <article class="modal-container">
+              <header class="modal-container-header">
+                <h1 class="modal-container-title">Hapus buku</h1>
+              </header>
+              <section class="modal-container-body">
+                <p>Apakah anda yakin menghapus buku ini?</p>
+              </section>
+              <div class="modal-container-footer">
+                <button id="cancelModal" class="btn-modal is-ghost">
+                  Cancel
+                </button>
+                <button id="deleteModal" class="btn-modal is-primary">
+                  Delete
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <div class="card-container">
+            <div class="card-header">
+              <h2 class="card-title">Belum selesai dibaca</h2>
+              <div class="book-group" id="listBookUncomplete"></div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="card-header">
+              <h2 class="card-title">Sudah selesai dibaca</h2>
+              <div class="book-group" id="listBookComplete"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <section>
+        <span>Copyright &copy; 2023, </span
+        ><a
+          href="https://github.com/AzwarKusumah"
+          rel="noopener noreferrer"
+          target="_blank"
+          >AzwarKusumah</a
+        >
+      </section>
+    </footer>
+    <script src="js/dom.js"></script>
+  </body>
+</html>
